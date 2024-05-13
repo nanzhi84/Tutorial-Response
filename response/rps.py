@@ -107,16 +107,15 @@ class PS(object):
         # self.N = ???
         print(self.M.shape) #(65536, 50)
         print(self.L.shape) #(3, 50)
-        A = self.M.T #(50, 65536)
-        b = self.L.T #(50, 3)
-        # (50,p)@(p,3)= (50,3) M.T @ N = L.T
-        self.N = np.linalg.lstsq(A, b, rcond=None)[0]
+        M = self.M.T #(50, 65536)
+        L = self.L.T #(50, 3)
+        self.N = np.linalg.lstsq(L, M, rcond=None)[0].T
 
         # Step 2: We need to normalize the normal vectors as the norm of the normal vectors should be 1
         # Hint: You can use function normalize from sklearn.preprocessing
 
         # self.N = ???
-        self.N = normalize(self.N, norm='l2')
+        self.N = normalize(self.N, axis=1)
 
         #############################################
 

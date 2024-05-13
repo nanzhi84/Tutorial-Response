@@ -33,3 +33,4 @@ angular_err = psutil.evaluate_angular_error(N_gt, rps.N, rps.background_ind)    
 print("Mean angular error [deg]: ", np.mean(angular_err[:]))
 psutil.disp_normalmap(normal=rps.N, height=rps.height, width=rps.width)
 print("done.")
+  
