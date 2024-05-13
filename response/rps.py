@@ -105,6 +105,8 @@ class PS(object):
         # Hint: You can use np.linalg.lstsq(A, b) to solve Ax = b
 
         # self.N = ???
+        print(self.M.shape)
+        print(self.L.shape)
         A = self.L.T
         b = self.M.T
         self.N = np.linalg.lstsq(A, b, rcond=None)[0].T
