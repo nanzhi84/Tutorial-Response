@@ -105,11 +105,12 @@ class PS(object):
         # Hint: You can use np.linalg.lstsq(A, b) to solve Ax = b
 
         # self.N = ???
-        print(self.M.shape)
-        print(self.L.shape)
-        A = self.L.T
-        b = self.M.T
-        self.N = np.linalg.lstsq(A, b, rcond=None)[0].T
+        print(self.M.shape) #(65536, 50)
+        print(self.L.shape) #(3, 50)
+        A = self.M.T #(50, 65536)
+        b = self.L.T #(50, 3)
+        # (50,p)@(p,3)= (50,3) M.T @ N = L.T
+        self.N = np.linalg.lstsq(A, b, rcond=None)[0]
 
         # Step 2: We need to normalize the normal vectors as the norm of the normal vectors should be 1
         # Hint: You can use function normalize from sklearn.preprocessing
