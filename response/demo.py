@@ -17,7 +17,7 @@ GT_NORMAL_FILENAME = './data/bunny/gt_normal.npy'
 
 # Photometric Stereo
 rps = PS()
-# rps.load_mask(filename=MASK_FILENAME)    # Load mask image
+rps.load_mask(filename=MASK_FILENAME)    # Load mask image
 rps.load_lightnpy(filename=LIGHT_FILENAME)    # Load light matrix
 rps.load_npyimages(foldername=DATA_FOLDERNAME)    # Load observations
 start = time.time()
